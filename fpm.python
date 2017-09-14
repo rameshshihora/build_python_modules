@@ -1,0 +1,1 @@
+fpm -s python -t rpm --python-bin /usr/bin/python3.4 -n fbit-python3-psutil --iteration "el6" psutil
