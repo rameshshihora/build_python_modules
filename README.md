@@ -82,4 +82,3 @@ Specific version using pip: pip install -Iv MySQL_python==1.2.2
 
 -I - -I, --ignore-installed ignores already installed packages.
 
-

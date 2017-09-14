@@ -1,0 +1,37 @@
+PEX: 
+
+Build Package with pex tool. 
+
+Python3.4 - install pex 
+$ python3.4 -m pip install pex
+
+Sample Package directory structure: 
+
+mkdir my_requests
+cd my_requests 
+vi my_requests.py
+
+import requests
+
+
+if __name__ == '__main__':
+  r = requests.post("http://bugs.python.org", data={'number': 12524, 'type': 'issue', 'action': 'show'})
+  print(r.status_code, r.reason)
+
+vi requirements.txt
+requests
+psutil
+
+vi setup.py
+#!/usr/bin/env python
+
+from setuptools import setup
+setup(name='myrequest', scripts=['myrequest.py'])
+
+$ pex . -r requirements.txt --script myrequest.py -o myrequest
+
+
+# https://gist.github.com/simeonf/062af826e79259bc7686
+# https://github.com/pantsbuild/pex/issues/59
+
+

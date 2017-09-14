@@ -1,1 +1,17 @@
 fpm -s python -t rpm --python-bin /usr/bin/python3.4 -n fbit-python3-psutil --iteration "el6" psutil
+
+
+
+[root@prn-cubeconstruct02 ~]# fpm -s python -t rpm --python-bin /usr/bin/python3.4 --python-obey-requirements-txt --python-fix-name -n my_requests  my_requests
+no value for epoch is set, defaulting to nil {:level=>:warn}
+no value for epoch is set, defaulting to nil {:level=>:warn}
+Created package {:path=>"my_requests-0.0.0-1.noarch.rpm"}
+[root@prn-cubeconstruct02 ~]# rpm -qRp my_requests-0.0.0-1.noarch.rpm
+python-requests
+python-psutil
+rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+rpmlib(CompressedFileNames) <= 3.0.4-1
+
+- somehow it adds python- from the requirement packages.. not sure as of now how to fix it. but it creates the rpm and adds the dependency to the rpm.
+
+
